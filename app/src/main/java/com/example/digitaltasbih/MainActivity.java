@@ -5,18 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView liveCount, subhanallah, alhamdulillah, la_ilaha_ilallah, subhanallahDigit, alhamdulillahDigit, la_ilaha_ilallahDigit;
-    Button tasbihCount, resetTasbih, leave;
+    TextView liveCount, subhanallah, alhamdulillah, la_ilaha_ilallah, subhanallahDigit, alhamdulillahDigit, la_ilaha_ilallahDigit, totalTasbih;
+    Button tasbihCount, resetTasbih; //leave;
 
-    int countSubhanallah = 0;
-    int countAlhamdulillah = 0;
-    int countLa_ilaha_ilallah = 0;
+    int subhanallahDgt = 0;
+    int alhamdulillahDgt = 0;
+    int la_ilaha_ilallahDgt = 0;
     int countTotal = 0;
 
     @SuppressLint("MissingInflatedId")
@@ -35,9 +36,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alhamdulillahDigit = findViewById(R.id.alhamdulillahDigit);
         la_ilaha_ilallahDigit = findViewById(R.id.la_ilaha_ilallahDigit);
 
+        totalTasbih = findViewById(R.id.totalTasbih);
+
         tasbihCount = findViewById(R.id.tasbihCount);
         resetTasbih = findViewById(R.id.resetTasbih);
-        leave = findViewById(R.id.leave);
+        //leave = findViewById(R.id.leave);
 
 
         tasbihCount.setEnabled(false);
@@ -51,9 +54,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         alhamdulillahDigit.setOnClickListener(this);
         la_ilaha_ilallahDigit.setOnClickListener(this);
 
+        totalTasbih.setOnClickListener(this);
+
         tasbihCount.setOnClickListener(this);
         resetTasbih.setOnClickListener(this);
-        leave.setOnClickListener(this);
+        //leave.setOnClickListener(this);
         liveCount.setOnClickListener(this);
 
 
@@ -66,7 +71,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v.getId() == R.id.subhanallah) {
 
-            liveCount.setText(""+0);
+            subhanallah.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+            subhanallahDigit.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+
+            alhamdulillah.setTextColor(getResources().getColor(R.color.white));
+            alhamdulillahDigit.setTextColor(getResources().getColor(R.color.white));
+            la_ilaha_ilallah.setTextColor(getResources().getColor(R.color.white));
+            la_ilaha_ilallahDigit.setTextColor(getResources().getColor(R.color.white));
+
+            Toast.makeText(this, "Button Subhanallah has selected!", Toast.LENGTH_SHORT).show();
+            liveCount.setText("" + 0);
             tasbihCount.setEnabled(true);
             tasbihCount.setText("Subhanallah");
 
@@ -74,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onClick(View v) {
 
-                    int subhanallahDgt = Integer.parseInt(subhanallahDigit.getText().toString());
+                    subhanallahDgt = Integer.parseInt(subhanallahDigit.getText().toString());
                     subhanallahDgt++;
                     subhanallahDigit.setText("" + subhanallahDgt);
 
@@ -84,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     newSubhanallah++;
                     liveCount.setText(String.valueOf(newSubhanallah));
 
+                    countTotal++;
+                    totalTasbih.setText("Total Tasbih : " + countTotal);
+
 
                 }
             });
@@ -91,7 +108,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         } else if (v.getId() == R.id.alhamdulillah) {
 
-            liveCount.setText(""+0);
+            alhamdulillah.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+            alhamdulillahDigit.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+
+            subhanallah.setTextColor(getResources().getColor(R.color.white));
+            subhanallahDigit.setTextColor(getResources().getColor(R.color.white));
+            la_ilaha_ilallah.setTextColor(getResources().getColor(R.color.white));
+            la_ilaha_ilallahDigit.setTextColor(getResources().getColor(R.color.white));
+
+            Toast.makeText(this, "Button Alhamdulillah has selected!", Toast.LENGTH_SHORT).show();
+            liveCount.setText("" + 0);
             tasbihCount.setEnabled(true);
             tasbihCount.setText("Alhamdulillah");
 
@@ -101,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onClick(View v) {
 
 
-                    int alhamdulillahDgt = Integer.parseInt(alhamdulillahDigit.getText().toString());
+                    alhamdulillahDgt = Integer.parseInt(alhamdulillahDigit.getText().toString());
                     alhamdulillahDgt++;
                     alhamdulillahDigit.setText("" + alhamdulillahDgt);
 
@@ -110,6 +136,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     newAlhamdulillah++;
                     liveCount.setText(String.valueOf(newAlhamdulillah));
 
+                    countTotal++;
+                    totalTasbih.setText("Total Tasbih : " + countTotal);
 
 
                 }
@@ -117,7 +145,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         } else if (v.getId() == R.id.la_ilaha_ilallah) {
 
-            liveCount.setText(""+0);
+            la_ilaha_ilallah.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+            la_ilaha_ilallahDigit.setTextColor(getResources().getColor(R.color.deep_sky_blue));
+
+            subhanallah.setTextColor(getResources().getColor(R.color.white));
+            subhanallahDigit.setTextColor(getResources().getColor(R.color.white));
+            alhamdulillah.setTextColor(getResources().getColor(R.color.white));
+            alhamdulillahDigit.setTextColor(getResources().getColor(R.color.white));
+
+            Toast.makeText(this, "Button La ilaha ilallah has selected!", Toast.LENGTH_SHORT).show();
+            liveCount.setText("" + 0);
             tasbihCount.setEnabled(true);
             tasbihCount.setText("La ilaha ilallah");
 
@@ -125,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onClick(View v) {
 
-                    int la_ilaha_ilallahDgt = Integer.parseInt(la_ilaha_ilallahDigit.getText().toString());
+                    la_ilaha_ilallahDgt = Integer.parseInt(la_ilaha_ilallahDigit.getText().toString());
                     la_ilaha_ilallahDgt++;
                     la_ilaha_ilallahDigit.setText("" + la_ilaha_ilallahDgt);
 
@@ -134,10 +171,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     newLa_ilaha_ilallah++;
                     liveCount.setText(String.valueOf(newLa_ilaha_ilallah));
 
+
+                    countTotal++;
+                    totalTasbih.setText("Total Tasbih : " + countTotal);
+
                 }
             });
 
+        } else if (v.getId() == R.id.resetTasbih) {
+
+            Toast.makeText(this, "Button Reset has clicked!", Toast.LENGTH_SHORT).show();
+
         }
+
+
+        //=============================================================
 
 
     }

@@ -22,13 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:text="0"
             android:textColor="@color/white"
             android:textSize="50sp"
             tools:ignore="HardcodedText" />
-
 
 
         <LinearLayout
@@ -81,13 +80,12 @@
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
-            android:gravity="bottom"
             android:orientation="horizontal"
             android:weightSum="3">
 
@@ -95,9 +93,9 @@
                 android:id="@+id/subhanallah"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:gravity="start"
+                android:gravity="center"
                 android:text="Subhanallah"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -121,9 +119,9 @@
                 android:id="@+id/la_ilaha_ilallah"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:gravity="end"
+                android:gravity="center"
                 android:text="La ilaha ilallah"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -144,6 +142,20 @@
         android:orientation="vertical"
         android:saveEnabled="true"
         tools:ignore="HardcodedText,UselessLeaf,UselessParent">
+
+
+        <TextView
+            android:id="@+id/totalTasbih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="Total Tasbih"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
 
         <Button
@@ -170,17 +182,17 @@
             android:textSize="20sp" />
 
 
-        <Button
-            android:id="@+id/leave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
-            android:text="Leave"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+<!--        <Button-->
+<!--            android:id="@+id/leave"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:layout_marginBottom="50dp"-->
+<!--            android:text="Leave"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="20sp" />-->
 
 
     </RelativeLayout>
