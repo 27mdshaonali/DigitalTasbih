@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         tasbihCount.setEnabled(false);
+        resetTasbih.setVisibility(View.GONE);
 
 
         subhanallah.setOnClickListener(this);
@@ -101,6 +102,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     countTotal++;
                     totalTasbih.setText("Total Tasbih : " + countTotal);
 
+                    resetTasbih.setVisibility(View.VISIBLE);
+
 
                 }
             });
@@ -139,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     countTotal++;
                     totalTasbih.setText("Total Tasbih : " + countTotal);
 
+                    resetTasbih.setVisibility(View.VISIBLE);
+
 
                 }
             });
@@ -175,14 +180,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     countTotal++;
                     totalTasbih.setText("Total Tasbih : " + countTotal);
 
+                    resetTasbih.setVisibility(View.VISIBLE);
+
                 }
             });
 
-        } else if (v.getId() == R.id.resetTasbih) {
-
-            Toast.makeText(this, "Button Reset has clicked!", Toast.LENGTH_SHORT).show();
-
         }
+
+        resetTasbih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                subhanallah.setTextColor(getResources().getColor(R.color.white));
+                subhanallahDigit.setTextColor(getResources().getColor(R.color.white));
+
+                alhamdulillah.setTextColor(getResources().getColor(R.color.white));
+                alhamdulillahDigit.setTextColor(getResources().getColor(R.color.white));
+
+                la_ilaha_ilallah.setTextColor(getResources().getColor(R.color.white));
+                la_ilaha_ilallahDigit.setTextColor(getResources().getColor(R.color.white));
+
+                liveCount.setText("" + 0);
+                subhanallahDigit.setText("" + 0);
+                alhamdulillahDigit.setText("" + 0);
+                la_ilaha_ilallahDigit.setText("" + 0);
+
+                countTotal = 0;
+
+                totalTasbih.setText("Total Tasbih: " + countTotal);
+                tasbihCount.setText("Select Tasbih");
+                resetTasbih.setVisibility(View.GONE);
+                tasbihCount.setEnabled(false);
+
+
+                Toast.makeText(MainActivity.this, "Yore Tasbih has been reset", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
         //=============================================================
